@@ -9,11 +9,8 @@ source=(https://www.cinelerra-cv.org/releases/$name-$version.tar.xz)
 
 build () {
 	cd $name-$version
-
 	./autogen.sh
-	
 	LDFLAGS="-ldl" \
-
 	./configure \
   		--prefix=/usr \
   		--sysconfdir=/etc \
@@ -21,7 +18,6 @@ build () {
   		--libdir=/usr/lib \
   		--with-plugindir=/usr/lib/cinelerra \
   		--disable-static \
-  		--mandir=/usr/man \
   		--with-pic \
   		--with-x \
   		$mmx
