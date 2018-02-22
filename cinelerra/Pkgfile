@@ -1,0 +1,30 @@
+# Description: Non-linear video editor and compositor
+# URL:	       https://cinelerra-cv.org/
+# Depends on:  faad2 imlib2 lame libavc1394 libdv libiec61883 mjpegtools x264 faac liba52 libtheora libsndfile fftw
+
+name=CinelerraCV
+version=2.3
+release=1
+source=(https://www.cinelerra-cv.org/releases/$name-$version.tar.xz)
+
+build () {
+	cd $name-$version
+
+	./autogen.sh
+	
+	LDFLAGS="-ldl" \
+
+	./configure \
+  		--prefix=/usr \
+  		--sysconfdir=/etc \
+  		--localstatedir=/var \
+  		--libdir=/usr/lib \
+  		--with-plugindir=/usr/lib/cinelerra \
+  		--disable-static \
+  		--mandir=/usr/man \
+  		--with-pic \
+  		--with-x \
+  		$mmx
+	make
+	make DESTDIR=$PKG install
+}

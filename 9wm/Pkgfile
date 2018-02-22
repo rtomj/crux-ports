@@ -1,0 +1,13 @@
+# Description:  a window manager inspired by Plan9's rio
+# URL: https://github.com/9wm/9wm
+
+name=9wm
+version=1.4.0
+release=2
+source=(https://github.com/9wm/9wm/archive/$version.tar.gz)
+
+build() {
+    cd $name-$version
+
+    make DESTDIR=$PKG PREFIX=/usr install
+}

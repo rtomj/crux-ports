@@ -1,0 +1,14 @@
+# Description: Light is a program to control backlight controllers
+# URL:	       https://haikarainen.github.io/light/
+# Depends on:  help2man
+
+name=light
+version=1.0
+release=1
+source=(https://github.com/haikarainen/light/archive/v$version.tar.gz)
+
+build () {
+	cd $name-$version
+	make
+	make DESTDIR=$PKG install
+}

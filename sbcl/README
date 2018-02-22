@@ -1,0 +1,3 @@
+Set sbcl path:
+
+export SBCL_HOME="/usr/lib/sbcl"

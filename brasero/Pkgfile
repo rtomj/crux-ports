@@ -1,0 +1,16 @@
+# Description: dvd buring program
+# URL:	       https://wiki.gnome.org/Brasero
+# Depends on:  gtk3 gnome-common gstreamer libxml2 cdrkit cairo libcanberra gsettings-desktop-schemas
+# Optional:    totem tracker libburn libisofs 
+
+name=brasero
+version=3.12.2
+release=3.12
+source=(https://download.gnome.org/sources/$name/$release/$name-$version.tar.xz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+}

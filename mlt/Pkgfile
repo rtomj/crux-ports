@@ -1,0 +1,17 @@
+# Description: media lovin' toolkit
+# URL: http://www.mltframework.org/
+# Depends on: sox frei0r-plugins ladspa ffmpeg libexif swig lua perl python
+
+name=mlt
+version=6.6.0
+release=1
+source=(https://github.com/mltframework/$name/releases/download/v$version/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr \
+		--swig-languages="lua perl python" \
+		--enable-gpl 
+	make
+	make DESTDIR=$PKG install
+}
