@@ -1,0 +1,17 @@
+# Description: Xfce4 screenshot tool
+# URL:         http://goodies.xfce.org/projects/applications/xfce4-screenshooter
+# Depends on:  libsoup glib
+
+name=xfce4-screenshooter
+version=1.8.2
+release=1
+source=(http://archive.xfce.org/src/apps/xfce4-screenshooter/1.8/$name-$version.tar.bz2)
+
+build () {
+    cd $name-$version
+
+    ./configure --prefix=/usr
+    make
+    make DESTDIR=$PKG install
+
+}
