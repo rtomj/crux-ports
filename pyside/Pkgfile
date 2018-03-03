@@ -1,0 +1,20 @@
+# Description: python binding for Qt libraries
+# URL:         http://www.pyside.org/
+# Depends on:  python shiboken qt4
+
+name=pyside
+version=qt4.8+1.2.2
+release=1
+source=(http://download.qt-project.org/official_releases/pyside/$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+
+	cmake \
+		-DCMAKE_INSTALL_PREFIX=/usr \
+		-DBUILD_TESTS:BOOL=OFF \
+    	-DENABLE_GCC_OPTIMIZATION:BOOL=ON 
+    make
+    make DESTDIR=$PKG install
+
+}
