@@ -1,0 +1,15 @@
+# Description: Otter aims to recreate the classic Opera browser using Qt5
+# URL:         https://otter-browser.org/
+# Depends on:  qt5 openssl gstreamer cmake qtwebkit hunspell
+
+name=otter-browser
+version=0.9.96
+release=1
+source=(https://github.com/OtterBrowser/otter-browser/archive/v$version.tar.gz)
+
+build() {
+	cd $name-$version
+	cmake -DCMAKE_INSTALL_PREFIX=/usr 
+	make
+	make DESTDIR=$PKG install
+}
