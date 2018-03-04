@@ -4,7 +4,7 @@
 name=wkhtmltox
 version=0.12.4
 release=1
-source=(https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz)
+source=(https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/$version/$name-$version_linux-generic-amd64.tar.xz)
 
 build() {
 	cd $name
