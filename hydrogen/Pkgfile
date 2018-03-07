@@ -1,0 +1,23 @@
+# Description: Advanced drum machine for GNU/Linux
+# URL:         http://www.hydrogen-music.org
+# Depends on:  scons qt4 jack alsa-lib libsndfile liblrdf zlib
+
+name=hydrogen
+version=git
+release=1
+source=()
+
+build() {
+
+	cd "${PKGMK_SOURCE_DIR}"
+
+	if cd hydrogen; then
+		git fetch -q; git reset --hard origin/master
+	else
+		git clone git://github.com/hydrogen-music/hydrogen.git
+
+	fi
+	cd src
+	cmake -DCMAKE_INSTALL_PREFIX=/usr ..
+	make DESTDIR="${PKG}" install
+}
