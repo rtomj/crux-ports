@@ -1,0 +1,18 @@
+# Description:  A highly customizable and functional document viewer.
+# URL:          https://pwmt.org/projects/zathura/
+# Depends on:   girara
+
+
+name=zathura
+version=0.3.8
+release=1
+source=(https://pwmt.org/projects/$name/download/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	make
+	make DESTDIR=$PKG install
+
+	rm -rf $PKG/usr/share/locale
+}
