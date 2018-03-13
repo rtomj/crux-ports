@@ -1,0 +1,26 @@
+# Description: RPM Package Manager - RPM.org fork, used in major RPM distros
+# URL:         http://www.rpm.org/
+# Depends on:  elfutils file libarchive libcap popt nss lua python
+
+name=rpm
+version=4.14.1
+release=1
+source=(http://ftp.rpm.org/releases/rpm-4.14.x/rpm-4.14.1.tar.bz2)
+
+build() {
+    cd $name-$version
+
+	./configure \
+		--prefix=/usr  \
+		--sysconfdir=/etc  \
+		--localstatedir=/var \
+		--enable-python \
+		--with-external-db \
+		--with-lua \
+		--with-cap \
+		CPPFLAGS="`pkg-config --cflags nss`" \
+		PYTHON=python2
+	make
+	make DESTDIR=$PKG install
+}
+    
