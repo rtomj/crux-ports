@@ -1,0 +1,16 @@
+# Description: converts between the rpm, dpkg, stampede slp, and tgz file formats
+# URL:         https://joeyh.name/code/alien/
+# Depends on:  bzip2 cpio perl rpm debhelper
+
+name=alien
+version=8.95
+release=1
+source=(http://ftp.de.debian.org/debian/pool/main/a/alien/alien_8.95.tar.xz)
+
+build() {
+    cd $name-$version
+
+	perl Makefile.PL PREFIX=/usr INSTALLDIRS=vendor
+	make
+	make DESTDIR=$PKG install
+}
