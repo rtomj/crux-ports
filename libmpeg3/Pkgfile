@@ -1,0 +1,19 @@
+# Description: libmpeg3 supports advanced editing of mp3 streams
+# URL:         http://www.linuxfromscratch.org/blfs/view/7.4/multimedia/libmpeg3.html
+# Depends on: liba52 nasm
+
+name=libmpeg3
+version=1.8
+release=1
+source=("https://github.com/sergiomb2/libmpeg3/archive/$version.tar.gz"
+		"http://www.linuxfromscratch.org/patches/downloads/libmpeg3/libmpeg3-1.8-makefile_fixes-2.patch")
+
+build() {
+	cd $name-$version
+	patch -Np1 -i ../libmpeg3-1.8-makefile_fixes-2.patch
+	./configure --prefix=/usr \
+		--with-gnu-ld --enable-shared \
+		--disable-nls
+	make
+	make DESTDIR=$PKG install
+}
