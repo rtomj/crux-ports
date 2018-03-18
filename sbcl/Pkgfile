@@ -1,17 +1,17 @@
 # Description: Steel Bank Common Lisp (binary)
-# URL:         http://www.sbcl.org/
-# Depends on:  glibc texinfo
+# URL: http://www.sbcl.org/
+# Depends on: glibc texinfo
 
 name=sbcl
-version=1.4.4
+version=1.4.5
 release=1
 source=(http://prdownloads.sourceforge.net/sbcl/$name-$version-x86-64-linux-binary.tar.bz2)
 
 build ()
 {
-    	cd $name-$version-x86-64-linux
-    	mkdir $PKG/usr
+	cd $name-$version-x86-64-linux
+    mkdir $PKG/usr
 	
-		INSTALL_ROOT=$PKG/usr sh install.sh
-    	rm -rf $PKG/usr/share/doc/
+	INSTALL_ROOT=/usr sh install.sh
+    rm -rf $PKG/usr/share/doc/
 }
