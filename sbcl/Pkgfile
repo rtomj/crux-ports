@@ -3,7 +3,7 @@
 # Depends on: glibc texinfo
 
 name=sbcl
-version=1.4.5
+version=1.4.7
 release=1
 source=(http://prdownloads.sourceforge.net/sbcl/$name-$version-x86-64-linux-binary.tar.bz2)
 
