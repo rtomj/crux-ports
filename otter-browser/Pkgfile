@@ -4,7 +4,7 @@
 # Optional:    qtwebengine
 
 name=otter-browser
-version=0.9.96
+version=0.9.98
 release=1
 source=(https://github.com/OtterBrowser/otter-browser/archive/v$version.tar.gz)
 
