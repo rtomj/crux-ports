@@ -3,9 +3,9 @@
 # Depends on:  libsoup glib
 
 name=xfce4-screenshooter
-version=1.8.2
+version=1.9.2
 release=1
-source=(http://archive.xfce.org/src/apps/xfce4-screenshooter/1.8/$name-$version.tar.bz2)
+source=(http://archive.xfce.org/src/apps/xfce4-screenshooter/1.9/$name-$version.tar.bz2)
 
 build () {
     cd $name-$version
